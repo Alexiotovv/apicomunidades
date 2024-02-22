@@ -1,7 +1,7 @@
 ---
   deployment:
     tasks:
-      - export DEPLOYPATH=/home/gorel/public_html/apicomunidades.regionloreto.gob.pe/
+      - export DEPLOYPATH=/home/gorel/public_html/pueblosoriginarios.regionloreto.gob.pe/panel
       - /bin/rsync -av public/ $DEPLOYPATH
-      - export DEPLOYPATH=/home/gorel/web_apicomunidades/
+      - export DEPLOYPATH=/home/gorel/web_pueblosoriginarios/
       - /bin/rsync -av ./ $DEPLOYPATH
