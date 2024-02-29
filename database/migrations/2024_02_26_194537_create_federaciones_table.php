@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ubigeos', function (Blueprint $table) {
+        Schema::create('federaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('provincia', 250)->default('');
-            $table->string('distrito', 250)->default('');
-            $table->string('agrupado', 10)->default('');
+            $table->string('nombre_federacion', 250)->default('');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ubigeos');
+        Schema::dropIfExists('federaciones');
     }
 };

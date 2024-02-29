@@ -23,16 +23,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-        //pueblos_indigenas::truncate();
-        //actividad_economicas::truncate();
-        // condicion_geograficas::truncate();
-        // nivel_educativos::truncate();
-        // religiones::truncate();
-        // ubigeos::truncate();
-        // lenguas_originarias::truncate();
-        // autoridades::truncate();
-        // comunidades::truncate();
+        DB::table('autoridades')->insert([
+            ['dni' => '00000000','nombre' => 'nombre_prueba','apellidos' => 'apellidos_prueba']]);
+
+        DB::table('federaciones')->insert([
+            [ 'nombre_federacion' => 'nombre_prueba_federacion'],
+        ]);
 
         DB::table('actividad_economicas')->insert([
             [ 'nombre_actividad' => 'AGRÍCOLA'],
@@ -64,59 +60,59 @@ class DatabaseSeeder extends Seeder
         
 
         DB::table('ubigeos')->insert([
-            ['provincia' => 'ALTO AMAZONAS', 'distrito' => 'BALSAPUERTO'],
-            ['provincia' => 'ALTO AMAZONAS', 'distrito' => 'JEBEROS'],
-            ['provincia' => 'ALTO AMAZONAS', 'distrito' => 'LAGUNAS'],
-            ['provincia' => 'ALTO AMAZONAS', 'distrito' => 'SANTA CRUZ'],
-            ['provincia' => 'ALTO AMAZONAS', 'distrito' => 'TENIENTE CESAR LOPEZ ROJAS'],
-            ['provincia' => 'ALTO AMAZONAS', 'distrito' => 'YURIMAGUAS'],
-            ['provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'ANDOAS'],
-            ['provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'BARRANCA'],
-            ['provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'CAHUAPANAS'],
-            ['provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'MANSERICHE'],
-            ['provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'MORONA'],
-            ['provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'PASTAZA'],
-            ['provincia' => 'LORETO', 'distrito' => 'NAUTA'],
-            ['provincia' => 'LORETO', 'distrito' => 'PARINARI'],
-            ['provincia' => 'LORETO', 'distrito' => 'TIGRE'],
-            ['provincia' => 'LORETO', 'distrito' => 'TROMPETEROS'],
-            ['provincia' => 'LORETO', 'distrito' => 'URARINAS'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'ALTO NANAY'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'BELEN'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'INDIANA'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'IQUITOS'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'FERNANDO LORES'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'LAS AMAZONAS'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'MAZAN'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'NAPO'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'PUNCHANA'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'TORRES CAUSANA'],
-            ['provincia' => 'MAYNAS', 'distrito' => 'SAN JUAN BAUTISTA'],
-            ['provincia' => 'RAMON CASTILLA', 'distrito' => 'PEBAS'],
-            ['provincia' => 'RAMON CASTILLA', 'distrito' => 'RAMON CASTILLA'],
-            ['provincia' => 'RAMON CASTILLA', 'distrito' => 'SAN PABLO'],
-            ['provincia' => 'RAMON CASTILLA', 'distrito' => 'YAVARI'],
-            ['provincia' => 'REQUENA', 'distrito' => 'ALTO TAPICHE'],
-            ['provincia' => 'REQUENA', 'distrito' => 'CAPELO'],
-            ['provincia' => 'REQUENA', 'distrito' => 'EMILIO SAN MARTIN'],
-            ['provincia' => 'REQUENA', 'distrito' => 'JENARO HERRERA'],
-            ['provincia' => 'REQUENA', 'distrito' => 'MAQUIA'],
-            ['provincia' => 'REQUENA', 'distrito' => 'PUINAHUA'],
-            ['provincia' => 'REQUENA', 'distrito' => 'REQUENA'],
-            ['provincia' => 'REQUENA', 'distrito' => 'SAQUENA'],
-            ['provincia' => 'REQUENA', 'distrito' => 'SOPLIN'],
-            ['provincia' => 'REQUENA', 'distrito' => 'TAPICHE'],
-            ['provincia' => 'REQUENA', 'distrito' => 'YAQUERANA'],
-            ['provincia' => 'UCAYALI', 'distrito' => 'CONTAMANA'],
-            ['provincia' => 'UCAYALI', 'distrito' => 'INAHUAYA'],
-            ['provincia' => 'UCAYALI', 'distrito' => 'PADRE MARQUEZ'],
-            ['provincia' => 'UCAYALI', 'distrito' => 'PAMPA HERMOSA'],
-            ['provincia' => 'UCAYALI', 'distrito' => 'SARAYACU'],
-            ['provincia' => 'UCAYALI', 'distrito' => 'VARGAS GUERRA'],
-            ['provincia' => 'PUTUMAYO', 'distrito' => 'PUTUMAYO'],
-            ['provincia' => 'PUTUMAYO', 'distrito' => 'ROSA PANDURO'],
-            ['provincia' => 'PUTUMAYO', 'distrito' => 'TENIENTE MANUEL CLAVERO'],
-            ['provincia' => 'PUTUMAYO', 'distrito' => 'YAGUAS'],
+            ['agrupado'=>'1','provincia' => 'ALTO AMAZONAS', 'distrito' => 'BALSAPUERTO'],
+            ['agrupado'=>'1','provincia' => 'ALTO AMAZONAS', 'distrito' => 'JEBEROS'],
+            ['agrupado'=>'1','provincia' => 'ALTO AMAZONAS', 'distrito' => 'LAGUNAS'],
+            ['agrupado'=>'1','provincia' => 'ALTO AMAZONAS', 'distrito' => 'SANTA CRUZ'],
+            ['agrupado'=>'1','provincia' => 'ALTO AMAZONAS', 'distrito' => 'TENIENTE CESAR LOPEZ ROJAS'],
+            ['agrupado'=>'1','provincia' => 'ALTO AMAZONAS', 'distrito' => 'YURIMAGUAS'],
+            ['agrupado'=>'2','provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'ANDOAS'],
+            ['agrupado'=>'2','provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'BARRANCA'],
+            ['agrupado'=>'2','provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'CAHUAPANAS'],
+            ['agrupado'=>'2','provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'MANSERICHE'],
+            ['agrupado'=>'2','provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'MORONA'],
+            ['agrupado'=>'2','provincia' => 'DATEM DEL MARAÑON', 'distrito' => 'PASTAZA'],
+            ['agrupado'=>'3','provincia' => 'LORETO', 'distrito' => 'NAUTA'],
+            ['agrupado'=>'3','provincia' => 'LORETO', 'distrito' => 'PARINARI'],
+            ['agrupado'=>'3','provincia' => 'LORETO', 'distrito' => 'TIGRE'],
+            ['agrupado'=>'3','provincia' => 'LORETO', 'distrito' => 'TROMPETEROS'],
+            ['agrupado'=>'3','provincia' => 'LORETO', 'distrito' => 'URARINAS'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'ALTO NANAY'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'BELEN'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'INDIANA'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'IQUITOS'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'FERNANDO LORES'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'LAS AMAZONAS'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'MAZAN'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'NAPO'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'PUNCHANA'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'TORRES CAUSANA'],
+            ['agrupado'=>'4','provincia' => 'MAYNAS', 'distrito' => 'SAN JUAN BAUTISTA'],
+            ['agrupado'=>'5','provincia' => 'RAMON CASTILLA', 'distrito' => 'PEBAS'],
+            ['agrupado'=>'5','provincia' => 'RAMON CASTILLA', 'distrito' => 'RAMON CASTILLA'],
+            ['agrupado'=>'5','provincia' => 'RAMON CASTILLA', 'distrito' => 'SAN PABLO'],
+            ['agrupado'=>'5','provincia' => 'RAMON CASTILLA', 'distrito' => 'YAVARI'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'ALTO TAPICHE'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'CAPELO'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'EMILIO SAN MARTIN'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'JENARO HERRERA'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'MAQUIA'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'PUINAHUA'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'REQUENA'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'SAQUENA'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'SOPLIN'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'TAPICHE'],
+            ['agrupado'=>'6','provincia' => 'REQUENA', 'distrito' => 'YAQUERANA'],
+            ['agrupado'=>'7','provincia' => 'UCAYALI', 'distrito' => 'CONTAMANA'],
+            ['agrupado'=>'7','provincia' => 'UCAYALI', 'distrito' => 'INAHUAYA'],
+            ['agrupado'=>'7','provincia' => 'UCAYALI', 'distrito' => 'PADRE MARQUEZ'],
+            ['agrupado'=>'7','provincia' => 'UCAYALI', 'distrito' => 'PAMPA HERMOSA'],
+            ['agrupado'=>'7','provincia' => 'UCAYALI', 'distrito' => 'SARAYACU'],
+            ['agrupado'=>'7','provincia' => 'UCAYALI', 'distrito' => 'VARGAS GUERRA'],
+            ['agrupado'=>'8','provincia' => 'PUTUMAYO', 'distrito' => 'PUTUMAYO'],
+            ['agrupado'=>'8','provincia' => 'PUTUMAYO', 'distrito' => 'ROSA PANDURO'],
+            ['agrupado'=>'8','provincia' => 'PUTUMAYO', 'distrito' => 'TENIENTE MANUEL CLAVERO'],
+            ['agrupado'=>'8','provincia' => 'PUTUMAYO', 'distrito' => 'YAGUAS'],
         ]);
 
         DB::table('lenguas_originarias')->insert([
@@ -195,9 +191,7 @@ class DatabaseSeeder extends Seeder
             ['nombre_lengua' => 'Marinahua'],
             ['nombre_lengua' => 'Cashinahua / Mastanahua'],
             ['nombre_lengua' => 'Chitonahua'],
-        ]);
-        
-        DB::table('autoridades')->insert([['dni' => '00000000','nombre' => 'nombre_prueba','apellidos' => 'apellidos_prueba']]);
+        ]);        
 
         DB::table('comunidades')->insert([
             ['nombre_comunidad' => 'San José de Lupuna'],

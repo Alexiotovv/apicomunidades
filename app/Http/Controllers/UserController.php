@@ -8,6 +8,33 @@ use Validator;
 
 class UserController extends Controller
 {
+
+    function create(Request $request){
+        return view('usuarios.create');
+    }
+    function edit($id){
+        $usuario=User::find($id);
+        return view('usuarios.edit',['usuario'=>$usuario]);
+    }
+    function update(Request $request){
+        try {
+            $id=request('id');
+            $usuario=User::findOrFail($id);
+            $usuario->name=request('name');
+            $usuario->email=request('email');
+            $usuario->role=request('role');
+            $usuario->status=request('status');
+            if (request('contra')!='') {
+                $usuario->password=request('contra');
+            }
+            $usuario->save();
+            return redirect()->route('users')->with('mensaje','Registro Actualizado Correctamente!');
+        } catch (\Throwable $th) {
+            return redirect()->route('users')->with('error','Ocurrió un error durante el registro');
+        }
+
+    }
+
     public function register(Request $request){
         //Recepcionamos los datos para validar
         $validator=Validator::make($request->all(),[
@@ -25,10 +52,11 @@ class UserController extends Controller
         $user = User::create([
             'name'=> $request->input('name'),
             'email'=>$request->input('email'),
-            'password'=>$request->input('password')
+            'password'=>$request->input('password'),
+            'role'=>$request->input('role'),
         ]);
 
-        return response()->json(['message' => 'User registered successfully'], 201);
+        return redirect()->route('users');
     }
 
 
@@ -53,10 +81,11 @@ class UserController extends Controller
     public function users(Request $request){
         try {
             $users = User::all();
-            // $users=compact($users);
-            return response()->json(['usuarios' => $users],200);
+            return view('usuarios.index',['users'=>$users]);
+            
+            // return response()->json(['usuarios' => $users],200);
         } catch (\Throwable $th) {
-            return response()->json(['message' => 'server error'],500);
+            // return response()->json(['message' => 'server error'],500);
         }
     }
 

@@ -17,13 +17,15 @@ class AuthController extends Controller
     
     public function login(Request $request)
     {
+        
         $credentials = $request->only('email', 'password');
     
         if (Auth::attempt($credentials)) {
             $token = JWTAuth::attempt($credentials);
     
             if ($token) {
-                return response()->json(['token' => $token]);
+                return view('templates.home');
+                // return response()->json(['token' => $token]);
             } else {
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
@@ -35,15 +37,15 @@ class AuthController extends Controller
 
     public function logout()
     {
-        $token = JWTAuth::getToken(); // Obtener el token JWT de la solicitud
+        // $token = JWTAuth::getToken(); // Obtener el token JWT de la solicitud
     
-        if ($token) {
-            JWTAuth::invalidate($token); // Invalidar el token JWT
-        }
+        // if ($token) {
+        //     JWTAuth::invalidate($token); // Invalidar el token JWT
+        // }
     
         Auth::logout(); // Cerrar sesión en la aplicación
-    
-        return response()->json(['message' => 'Successfully logged out']);
+        return view('login');
+        // return response()->json(['message' => 'Successfully logged out']);
     }
 
     

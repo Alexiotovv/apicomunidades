@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id(); 
             $table->string('cuenca_rio', 250)->default('');
             $table->string('directiva', 250)->default('');
-            $table->string('federacion', 250)->default('');
             $table->string('predios', 250)->default('');
             $table->string('poblacion', 250)->default('');
             $table->string('colegio', 250)->default('');
@@ -26,6 +25,10 @@ return new class extends Migration
             $table->string('proyecto_nucleo_ejecutor', 250)->default('');
             $table->string('iglesias', 250)->default('');
             
+
+            $table->bigInteger('id_federacion')->unsigned();
+            $table->foreign('id_federacion')->references('id')->on('federaciones');
+
             $table->bigInteger('id_ubigeo')->unsigned();
             $table->foreign('id_ubigeo')->references('id')->on('ubigeos');
             
@@ -62,3 +65,5 @@ return new class extends Migration
         Schema::dropIfExists('pueblos_indigenas');
     }
 };
+
+
