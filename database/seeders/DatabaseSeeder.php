@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        
+
         DB::table('autoridades')->insert([
             ['dni' => '00000000','nombre' => 'nombre_prueba','apellidos' => 'apellidos_prueba']]);
 

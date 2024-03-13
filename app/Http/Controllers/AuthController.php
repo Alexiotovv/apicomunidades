@@ -27,7 +27,7 @@ class AuthController extends Controller
                 return view('templates.home');
                 // return response()->json(['token' => $token]);
             } else {
-                return response()->json(['error' => 'Unauthorized'], 401);
+                return response()->json(['error' => 'Unauthorized'], 402);
             }
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);

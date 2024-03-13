@@ -5,6 +5,11 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomesController;
 use App\Http\Controllers\PueblosIndigenasController;
+use App\Http\Controllers\NivelEducativosController;
+use App\Http\Controllers\ReligionesController;
+use App\Http\Controllers\LenguasOriginariasController;
+use App\Http\Controllers\ActividadEconomicasController;
+use App\Http\Controllers\CondicionGeograficasController;
 
 
 /*
