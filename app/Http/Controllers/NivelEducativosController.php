@@ -14,7 +14,7 @@ class NivelEducativosController extends Controller
     {
         try {
             $nivel=nivel_educativos::all();
-            return response()->json(['nivel_educativos' => $nivel]);
+            return response()->json(['data' => $nivel]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'server error'],500);
         }

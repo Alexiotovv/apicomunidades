@@ -14,7 +14,7 @@ class ReligionesController extends Controller
     {
         try {
             $religiones=religiones::all();
-            return response()->json($religiones);
+            return response()->json(['data'=>$religiones]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'server error'],500);
         }

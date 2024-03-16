@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\lenguas_originarias;
 use Illuminate\Http\Request;
-
+use DB;
 class LenguasOriginariasController extends Controller
 {
     /**
@@ -15,8 +15,11 @@ class LenguasOriginariasController extends Controller
     {
         
         try {
-            $lenguas=lenguas_originarias::all();
-            return response()->json(['lenguas_originarias' => $lenguas]);
+            $lenguas=DB::table('lenguas_originarias')
+            ->select('lenguas_originarias.id as numero','lenguas_originarias.nombre_lengua')
+            ->get();
+
+            return response()->json( $lenguas);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'server error'],500);
         }

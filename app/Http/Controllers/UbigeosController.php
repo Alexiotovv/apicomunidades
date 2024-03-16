@@ -14,7 +14,7 @@ class UbigeosController extends Controller
     {
         try {
             $ubigeos=ubigeos::all();
-            return response()->json(['ubigeos' => $ubigeos]);
+            return response()->json(['data' => $ubigeos]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'server error'],500);
         }

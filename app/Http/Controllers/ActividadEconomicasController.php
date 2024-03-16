@@ -14,7 +14,7 @@ class ActividadEconomicasController extends Controller
     {
         try {
             $actividades=actividad_economicas::all();
-            return response()->json(['actividades_economicas' => $actividades]);
+            return response()->json(['data' => $actividades]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'server error'],500);
         }

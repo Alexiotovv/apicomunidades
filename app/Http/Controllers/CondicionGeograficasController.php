@@ -14,7 +14,7 @@ class CondicionGeograficasController extends Controller
     {
         try {
             $condiciones=condicion_geograficas::all();
-            return response()->json(['condicion_geograficas' => $condiciones]);
+            return response()->json(['data' => $condiciones]);
         } catch (\Throwable $th) {
             return response()->json(['message' => 'server error'],500);
         }
