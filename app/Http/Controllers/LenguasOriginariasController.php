@@ -16,7 +16,8 @@ class LenguasOriginariasController extends Controller
         
         try {
             $lenguas=DB::table('lenguas_originarias')
-            ->select('lenguas_originarias.id as numero','lenguas_originarias.nombre_lengua')
+            ->select('lenguas_originarias.id as numero',
+            'lenguas_originarias.nombre_lengua')
             ->get();
 
             return response()->json( $lenguas);
